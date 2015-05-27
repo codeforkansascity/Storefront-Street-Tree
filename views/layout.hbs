@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
+    <title>{{#if title}} - {{title}}{{/if}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    {{#if firstName}}
+    <div id="greeting" style="float:right">
+      Hi {{firstName}}
+      <a href="/users/logout">Logout</a>
+    </div>
+    {{/if}}
+    <div id="page-content">
     {{{body}}}
+    </div>
   </body>
 </html>
