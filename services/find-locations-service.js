@@ -16,9 +16,13 @@ var args = {
     retail: true
 };
 
-exports.callDispensarySearch = function(next, args) {
-
-    
+exports.getLocations = function(next) {
+   
+   
+    // var queryLocation = ???|--->config.address<---|???
+    // var args = {
+    //     
+    // }
     // api.dispensary_list(args, function(err, dispensaries) {
     //     if (err) {
     //         console.log(err);
@@ -27,3 +31,12 @@ exports.callDispensarySearch = function(next, args) {
     //     next(null, dispensaries);
     // });
 };
+
+exports.getLocationDetails = function(locationId, next) {
+    api.location_details({lid: locationId}, function(err,details) {
+        if (err) {
+            console.log(err);
+        }
+        next(err, details);
+    });
+}
