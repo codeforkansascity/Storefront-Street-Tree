@@ -1,0 +1,29 @@
+<div>
+    <h1 ng-bind="vm.location.name"></h1>
+</div>
+<div>
+    <strong ng-show="!vm.location">Loading...</strong>
+    <div ng-repeat="cat in vm.location.menu">
+        <h2 ng-bind="cat.name"></h2>
+        <ul>
+            <li ng-repeat="item in cat.children">
+                <strong ng-bind="item.name" ng-click="vm.viewItem(item)" style="cursor:pointer;"></strong>
+                - <span ng-bind="item.description"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/ng-template" id="item.html">
+    <h1 ng-bind="vm.activeItem.name"></h1>
+    <div ng-repeat="optionType in vm.activeItem.children">
+        <strong ng-bind="optionType.name"></strong>
+        <ul>
+            <li ng-repeat="option in optionType.children">
+                <input type="checkbox" ng-click="vm.toggleOption(option)"/>
+                <span ng-bind="option.name"/>
+            </li>
+        </ul>
+    </div>
+    <button ng-click="vm.addItem(vm.activeItem)">Add to results</button>
+    <button ng-click="vm.cancel()">Cancel</button>
+</script>

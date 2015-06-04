@@ -8,7 +8,8 @@
     
     function apiFactory($http) {
         return {
-            getLocations: getLocations       
+            getLocations: getLocations,
+            getLocationDetails: getLocationDetails
         };
         
         function getLocations() {
@@ -16,6 +17,13 @@
                 .then(function(response) {
                     return response.data;
                 });
+        }
+        
+        function getLocationDetails(locId) {
+            return $http.get('/searches/api/location-details/' + locId)
+            .then(function(response) {
+                return response.data;
+            })
         }
     }
 }());

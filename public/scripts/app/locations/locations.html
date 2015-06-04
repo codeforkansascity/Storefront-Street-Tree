@@ -1,10 +1,11 @@
 <div>
     <strong ng-show="!vm.locations">Loading animation goes here...</strong>
     <ul>
-        <li ng-repeat="loc in vm.locations | orderBy:'na'">
-            <a ng-href="#/menu/{{loc.id}}">
-                <strong ng-bind="loc.na"></strong> <span ng-bind="'(' + loc.cu + ')'"></span>
-            </a>
+        <li ng-repeat="location in vm.locations">
+            <strong ng-bind="location.name"></strong>
+            <!--<a ng-href="#/menu/{{loc.id}}">-->
+            <!--    <strong ng-bind="loc.name"></strong> <span ng-bind="'(' + loc.locationLabel + ')'"></span>-->
+            <!--</a>-->
         </li>
     </ul>
 </div>

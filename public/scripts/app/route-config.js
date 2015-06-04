@@ -14,6 +14,11 @@
                 templateUrl: '/scripts/app/locations/locations.html',
                 controller: 'LocationsController',
                 controllerAs: 'vm'
+            })
+            .when('/menu/:locId', {
+                templateUrl: '/scripts/app/menu/menu.html',
+                controller: 'MenuController',
+                controllerAs: 'vm'
             });
     }
 }());
