@@ -20,20 +20,20 @@ router.post('/create', function(req, res, next) {
     if (err) {
       console.log(err);
       var vm = {
-         title:'Create an account', 
-         input: req.body, 
+         title:'Create an account',
+         input: req.body,
          error: err
       };
       delete vm.input.password;
       return res.render('users/create', vm);
     }
     req.login(req.body, function(err) {
-      res.redirect('/searches');
+      res.redirect('/home');
     });
   });
 });
 
-router.post('/login', 
+router.post('/login',
   function(req, res, next) {
     if (req.body.rememberMe) {
       req.session.cookie.maxAge = config.cookieMaxAge;
@@ -41,8 +41,8 @@ router.post('/login',
     next();
   },
   passport.authenticate('local', {
-    failureRedirect: '/', 
-    successRedirect: '/searches',
+    failureRedirect: '/',
+    successRedirect: '/home',
     failureFlash: 'Invalid credentials'
   }));
 
